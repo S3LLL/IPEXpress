@@ -5,10 +5,9 @@ import json
 import sys
 
 tomount   = {}
-container = os.listdir("../distrib")
 erreure   = 0
 
-for distrib in container:
+for distrib in os.listdir("../distrib"):
 	if distrib == "windows":
 		continue
 	try:

@@ -12,7 +12,11 @@ for distrib in os.listdir("mounted"):
 		oups = os.system("umount mounted/" + distrib)
 		if oups:
 			erreure += 1
+		oups = os.rmdir("mounted/" + distrib)
+		if oups:
+			erreure += 1
 	except Exception, e:
+		print(e)
 		continue
 
 sys.exit(erreure)

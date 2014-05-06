@@ -1,3 +1,9 @@
 #!/bin/sh
 
+# WEB
+ln -s /home/jean/ipexpress/dev/apache.conf /etc/apache2/conf.d/ipexpress.conf
+
+# NFS
 echo "/home/jean/ipexpress/nfs/mounted *(ro,insecure,all_squash)" | tee -a /etc/export
+/home/jean/ipexpress/nfs/mount
+service nfs-kernel-server restart
