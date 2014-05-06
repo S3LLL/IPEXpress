@@ -1,0 +1,9 @@
+{
+
+	"name"   : "GRML",
+	"image"  : "grml.iso",
+	"kernel" : "vmlinuz",
+	"initrd" : "initrd.img",
+	"args"   : "boot=live live-media-path=/live/grml64-full/ bootid=grml64full201309 apm=power-off nomce noprompt noeject vga=791"
+
+}

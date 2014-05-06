@@ -1,6 +1,0 @@
-#!ipxe
-
-set shttp 192.168.1.5
-set snfs  192.168.1.2
-
-chain http://${shttp}/~Jean/ipxe/sys.php?mac=${net0/mac}&ip=${net0/ip}&mask=${net0/netmask}&os=undefined
