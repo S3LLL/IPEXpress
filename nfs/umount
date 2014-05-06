@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+erreure = 0
+
+for distrib in os.listdir("mounted"):
+	if distrib == "README.md":
+		continue
+	try:
+		oups = os.system("umount mounted/" + distrib)
+		if oups:
+			erreure += 1
+	except Exception, e:
+		continue
+
+sys.exit(erreure)

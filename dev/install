@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "/home/jean/ipexpress/nfs/mounted *(ro,insecure,all_squash)" | tee -a /etc/export
