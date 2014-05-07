@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import os
-import sys
 
 erreure = 0
 
@@ -19,4 +18,4 @@ for distrib in os.listdir("mounted"):
 		print(e)
 		continue
 
-sys.exit(erreure)
+exit(erreure)

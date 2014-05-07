@@ -2,7 +2,6 @@
 
 import os
 import json
-import sys
 
 tomount   = {}
 erreure   = 0
@@ -31,4 +30,4 @@ for name,iso in tomount.items():
 		print(e)
 		erreure += 1
 
-sys.exit(erreure)
+exit(erreure)
