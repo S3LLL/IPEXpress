@@ -1,10 +1,10 @@
 <?php
 
+	echo "#!ipxe\n";
+
 	$settings = json_decode(file_get_contents("../../settings.json"));
 
 ?>
-
-#!ipxe
 
 set shttp <?php echo $settings->{"web-server"}; ?>
 
