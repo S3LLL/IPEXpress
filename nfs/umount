@@ -18,4 +18,7 @@ for distrib in os.listdir("mounted"):
 		print(e)
 		continue
 
+if erreure!=0:
+	print("doc: https://github.com/Ricain/ipexpress/wiki/umount");
+	
 exit(erreure)

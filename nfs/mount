@@ -8,6 +8,7 @@ erreure   = 0
 
 for distrib in os.listdir("../distrib"):
 	if distrib == "windows":
+		# TODO windows
 		continue
 	try:
 		with open("../distrib/" + distrib + "/param.json") as setting:
@@ -30,4 +31,6 @@ for name,iso in tomount.items():
 		print(e)
 		erreure += 1
 
+if erreure!=0 :
+	print("doc: https://github.com/Ricain/ipexpress/wiki/mount#erreurs")
 exit(erreure)
