@@ -32,7 +32,7 @@ if len(sys.argv) >= 3:
 # recupereation des paramettres genereaux
 
 try:
-	with open("../settings.json","r") as fsetting:
+	with open("/etc/ipexpress/settings.json","r") as fsetting:
 		settings = json.loads(fsetting.read())
 except Exception, e:
 	print("erreur: 4: lecture du fichier de config impossible: " + str(e))
@@ -42,7 +42,7 @@ except Exception, e:
 # creation du script embed
 
 try:
-	embed = open("embed.ipxe","w")
+	embed = open(settings["path"] + "boot/embed.ipxe","w")
 	embed.write("#!ipxe\n\n")
 	embed.write("dhcp\n")
 	embed.write("chain http://" + settings["web-server"] + "/ipexpress/core/boot.php")
@@ -59,8 +59,8 @@ try:
 		ext = "iso"
 	else:
 		ext = "usb"
-	oups = os.system("cd ipxe/src; make clean; make bin/ipxe." + ext + " EMBED=../../embed.ipxe && mv bin/ipxe." + ext + " ../.. ; make clean")
-	if not os.path.exists("ipxe." + ext):
+	oups = os.system("cd " + settings["path"] + "boot/ipxe/src; make clean; make bin/ipxe." + ext + " EMBED=../../embed.ipxe && mv bin/ipxe." + ext + " ../.. ; make clean")
+	if not os.path.exists(settings["path"] + "boot/ipxe." + ext):
 		print("erreur: 6: probleme de compilation")
 		print("doc   : https://github.com/Ricain/ipexpress/wiki/build#6-et-7")
 		exit(6)
@@ -73,4 +73,4 @@ print("image cree")
 # copie de l'image dans un media
 
 if len(sys.argv) >= 3:
-	os.system("dd if=ipxe." + ext + " of=" + sys.argv[2])
+	os.system("dd if=" + settings["path"] + "boot/ipxe." + ext + " of=" + sys.argv[2])

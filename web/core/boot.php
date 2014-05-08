@@ -2,7 +2,7 @@
 
 	echo "#!ipxe\n";
 
-	$settings = json_decode(file_get_contents("../../settings.json"));
+	$settings = json_decode(file_get_contents("/etc/ipexpress/settings.json"));
 
 ?>
 

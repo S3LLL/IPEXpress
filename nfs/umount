@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 
 import os
+import json
 
+path    = json.loads(open("/etc/ipexpress/settings.json").read())["path"]
 erreure = 0
 
-for distrib in os.listdir("mounted"):
+for distrib in os.listdir(path + "nfs/mounted"):
 	if distrib == "README.md":
 		continue
 	try:
-		oups = os.system("umount mounted/" + distrib)
+		oups = os.system("umount " + path + "nfs/mounted/" + distrib)
 		if oups:
 			erreure += 1
-		oups = os.rmdir("mounted/" + distrib)
+		oups = os.rmdir(path + "nfs/mounted/" + distrib)
 		if oups:
 			erreure += 1
 	except Exception, e:

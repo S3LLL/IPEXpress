@@ -3,25 +3,27 @@
 import os
 import json
 
-tomount   = {}
-erreure   = 0
 
-for distrib in os.listdir("../distrib"):
+path    = json.loads(open("/etc/ipexpress/settings.json").read())["path"]
+tomount = {}
+erreure = 0
+
+for distrib in os.listdir(path + "distrib"):
 	if distrib == "windows":
 		# TODO windows
 		continue
 	try:
-		with open("../distrib/" + distrib + "/param.json") as setting:
-			tomount[distrib] = "../distrib/" + distrib + "/" + json.loads(setting.read())["image"]
+		with open(path + "distrib/" + distrib + "/param.json") as setting:
+			tomount[distrib] = path + "distrib/" + distrib + "/" + json.loads(setting.read())["image"]
 	except Exception, e:
-		print("erreure: fichier manquant: distrib/" + distrib + "/param.json")
+		print("erreure: fichier manquant: " + path  + "distrib/" + distrib + "/param.json")
 		erreure += 1
 
 for name,iso in tomount.items():
 	try:
-		if not os.path.exists("mounted/" + name):
-			os.makedirs("mounted/" + name)
-		oups = os.system("mount -o loop " + iso + " mounted/" + name)
+		if not os.path.exists(path + "nfs/mounted/" + name):
+			os.makedirs(path + "nfs/mounted/" + name)
+		oups = os.system("mount -o loop " + iso + " " + path + "nfs/mounted/" + name)
 		if oups:
 			print("erreure: " + name + ": iso non monte")
 			erreure += 1
