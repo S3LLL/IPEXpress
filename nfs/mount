@@ -3,7 +3,6 @@
 import os
 import json
 
-
 path    = json.loads(open("/etc/ipexpress/settings.json").read())["path"]
 tomount = {}
 erreure = 0
@@ -15,23 +14,37 @@ for distrib in os.listdir(path + "distrib"):
 	try:
 		with open(path + "distrib/" + distrib + "/param.json") as setting:
 			tomount[distrib] = path + "distrib/" + distrib + "/" + json.loads(setting.read())["image"]
+			setting.close()
 	except Exception, e:
 		print("erreure: fichier manquant: " + path  + "distrib/" + distrib + "/param.json")
 		erreure += 1
 
 for name,iso in tomount.items():
 	try:
+		print("montage de " + name)
 		if not os.path.exists(path + "nfs/mounted/" + name):
 			os.makedirs(path + "nfs/mounted/" + name)
 		oups = os.system("mount -o loop " + iso + " " + path + "nfs/mounted/" + name)
 		if oups:
 			print("erreure: " + name + ": iso non monte")
 			erreure += 1
-		else:
-			print(name + " a bien ete monte")
-	except Exception, e:	
+			continue
+		config_ok = False
+		nfs_config = open("/etc/exports", "r+")
+		for line in nfs_config.readlines():
+			if path + "nfs/mounted/" + name in line:
+				config_ok = True
+		if not config_ok:
+			print("ecriture de " + name + " dans /etc/exports")
+			nfs_config.write("\n" + path + "nfs/mounted/" + name + " *(ro,insecure,all_squash,no_subtree_check)")
+		nfs_config.close()
+	except Exception, e:
 		print(e)
 		erreure += 1
+
+oups = os.system("service nfs-kernel-server restart")
+if oups:
+	erreure += 1
 
 if erreure!=0 :
 	print("doc: https://github.com/Ricain/ipexpress/wiki/mount#erreurs")
