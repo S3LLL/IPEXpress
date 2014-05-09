@@ -1,5 +1,7 @@
 <?php
 
+	header("Content-Type: text/plain");
+
 	echo "#!ipxe\n";
 
 	require_once "distrib.php";

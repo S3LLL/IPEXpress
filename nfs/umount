@@ -3,8 +3,10 @@
 import os
 import json
 
-path    = json.loads(open("/etc/ipexpress/settings.json").read())["path"]
-erreure = 0
+settings = json.loads(open("/etc/ipexpress/settings.json").read())
+path     = settings["path"]
+nfsd     = settings["nfs-server-name"]
+erreure  = 0
 
 for distrib in os.listdir(path + "nfs/mounted"):
 	if distrib == "README.md":
@@ -33,7 +35,7 @@ for distrib in os.listdir(path + "nfs/mounted"):
 		print(e)
 		continue
 
-oups = os.system("service nfs-kernel-server restart")
+oups = os.system("service " + nfsd + " restart")
 if oups:
 	erreure += 1
 

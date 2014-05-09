@@ -1,5 +1,7 @@
 <?php
 
+	header("Content-Type: text/plain");
+
 	//require_once "upcore/start.php";
 
 	echo "#!ipxe";

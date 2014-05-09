@@ -1,7 +1,8 @@
 {
 
-	"path"       : "/home/jean/ipexpress/",
-	"nfs-server" : "192.168.1.20",
-	"web-server" : "192.168.1.20"
+	"path"            : "/home/jean/ipexpress/",
+	"nfs-server"      : "192.168.1.20",
+	"nfs-server-name" : "nfs-kernel-server",
+	"web-server"      : "192.168.1.20"
 
 }

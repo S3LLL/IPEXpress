@@ -3,9 +3,11 @@
 import os
 import json
 
-path    = json.loads(open("/etc/ipexpress/settings.json").read())["path"]
-tomount = {}
-erreure = 0
+settings = json.loads(open("/etc/ipexpress/settings.json").read())
+path     = settings["path"]
+nfsd     = settings["nfs-server-name"]
+tomount  = {}
+erreure  = 0
 
 for distrib in os.listdir(path + "distrib"):
 	if distrib == "windows":
@@ -42,7 +44,7 @@ for name,iso in tomount.items():
 		print(e)
 		erreure += 1
 
-oups = os.system("service nfs-kernel-server restart")
+oups = os.system("service " + nfsd + " restart")
 if oups:
 	erreure += 1
 

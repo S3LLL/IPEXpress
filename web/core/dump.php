@@ -5,6 +5,11 @@
 		exit("echo erreure: argument manquant\n");
 	}
 
+	if (!in_array($_GET["distrib"], scandir("../../distrib")) || in_array($_GET["distrib"], array(".","..","README.md","windows"))) {
+		echo "#!ipxe\n";
+		exit("echo erreure: distribution inconnue\n");
+	}
+
 	if ($_GET["fichier"]!="kernel" && $_GET["fichier"]!="initrd") {
 		echo "#!ipxe\n";
 		exit("echo erreure: mauvaise requete\n");
