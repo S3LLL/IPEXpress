@@ -4,6 +4,7 @@ import os
 import json
 import signal
 import string
+import sys
 
 erreurs = 0
 
@@ -12,6 +13,11 @@ def ctrlc(signal, frame):
 	exit(erreurs)
 
 signal.signal(signal.SIGINT,ctrlc)
+
+if sys.version_info >= (3,0):
+	read = input
+else:
+	read = raw_input
 
 print("Bienvenue sur l'installeur de IPEXpress")
 
@@ -41,8 +47,8 @@ if not nfsd or not apache:
 	print("   voulez vous continuer?\n")
 
 try:
-	input("   appuyer sur une touche pour continuer ou ctrl+c pour arreter")
-except Exception, e:
+	read("   appuyer sur une touche pour continuer ou ctrl+c pour arreter")
+except Exception:
 	pass
 
 # Creation du fichier de parametre
@@ -53,14 +59,14 @@ try:
 	if nfsd:
 		sample["nfs-server-name"] = "nfs-kernel-server"
 	else:
-		sample["nfs-server-name"] = raw_input("   entrer le nom du serveur nfs: ")
-	sample["nfs-server"] = raw_input("   entrer l'adresse du serveur nfs: ")
-	sample["web-server"] = raw_input("   entrer l'adresse du serveur web: ")
+		sample["nfs-server-name"] = read("   entrer le nom du serveur nfs: ")
+	sample["nfs-server"] = read("   entrer l'adresse du serveur nfs: ")
+	sample["web-server"] = read("   entrer l'adresse du serveur web: ")
 	if not os.path.exists("/etc/ipexpress/"):
 		os.makedirs("/etc/ipexpress/")
 	json.dump(sample,open("/etc/ipexpress/settings.json","w"),indent=4)
 	print(":) fait!")
-except Exception, e:
+except Exception as e:
 	print(":( " + str(e))
 	erreurs += 1
 
@@ -72,7 +78,7 @@ try:
 	real   = open("/etc/ipexpress/apache2.conf","w")
 	for line in config:
 		if "##path##" in line:
-			line = string.replace(line,"##path##",path)
+			line = str.replace(line,"##path##",path)
 		real.write(line)
 	real.close()
 	print(":) /etc/ipexpress/apache2.conf cree")
@@ -86,7 +92,7 @@ try:
 	oups = os.system("service apache2 restart")
 	if oups:
 		erreurs += 1
-except Exception, e:
+except Exception as e:
 	print(":( " + str(e))
 	erreurs += 1
 

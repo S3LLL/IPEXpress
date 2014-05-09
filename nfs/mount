@@ -17,7 +17,7 @@ for distrib in os.listdir(path + "distrib"):
 		with open(path + "distrib/" + distrib + "/param.json") as setting:
 			tomount[distrib] = path + "distrib/" + distrib + "/" + json.loads(setting.read())["image"]
 			setting.close()
-	except Exception, e:
+	except Exception as e:
 		print("erreure: fichier manquant: " + path  + "distrib/" + distrib + "/param.json")
 		erreure += 1
 
@@ -40,7 +40,7 @@ for name,iso in tomount.items():
 			print("ecriture de " + name + " dans /etc/exports")
 			nfs_config.write("\n" + path + "nfs/mounted/" + name + " *(ro,insecure,all_squash,no_subtree_check)")
 		nfs_config.close()
-	except Exception, e:
+	except Exception as e:
 		print(e)
 		erreure += 1
 
