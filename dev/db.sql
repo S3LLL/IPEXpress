@@ -8,7 +8,7 @@
 -- PHP Version: 5.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "-04:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -17,8 +17,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ipxeboot`
+-- Database: `ipexpress`
 --
+
+DROP DATABASE IF EXISTS `ipexpress`;
+CREATE DATABASE IF NOT EXISTS `ipexpress`;
+USE `ipexpress`;
 
 -- --------------------------------------------------------
 
@@ -31,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `ordinateur` (
   `mac_ordi` binary(12) DEFAULT NULL,
   `ip_ordi` int(11) unsigned DEFAULT NULL,
   `mask_ordi` int(11) unsigned DEFAULT NULL,
+  `boot_ordi` text NOT NULL,
   `last_update_ordi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `os_ordi` text NOT NULL,
   PRIMARY KEY (`id_ordi`),
@@ -41,10 +46,10 @@ CREATE TABLE IF NOT EXISTS `ordinateur` (
 -- Dumping data for table `ordinateur`
 --
 
-INSERT INTO `ordinateur` (`id_ordi`, `mac_ordi`, `ip_ordi`, `mask_ordi`, `last_update_ordi`, `os_ordi`) VALUES
-(1, 'c82a144be37f', 3232235777, 4294967040, '2014-05-01 20:27:01', 'undefined'),
-(2, '0019d1721f69', 3232235794, 4294967040, '2014-05-02 20:31:05', 'undefined'),
-(3, '0019d1a465b8', 3232235791, 4294967040, '2014-05-02 15:09:57', 'undefined');
+INSERT INTO `ordinateur` (`id_ordi`, `mac_ordi`, `ip_ordi`, `mask_ordi`, `boot_ordi`, `last_update_ordi`, `os_ordi`) VALUES
+(1, 'c82a144be37f', 3232235777, 4294967040, 'user', '2014-05-01 20:27:01', 'undefined'),
+(2, '0019d1721f69', 3232235794, 4294967040, 'user', '2014-05-02 20:31:05', 'undefined'),
+(3, '0019d1a465b8', 3232235791, 4294967040, 'user', '2014-05-02 15:09:57', 'undefined');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -4,7 +4,7 @@ $( document ).ready(function() {
 });
 
 function reload(){
-	$.getJSON("../dump.php",function(result){
+	$.getJSON("json.php",function(result){
 		$all = "";
 		$.each(result, function(i, field){
 			$box = "<div class=" + field["os"] + "><table>\n";
