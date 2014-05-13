@@ -4,6 +4,6 @@
 	"image"  : "debian64_live.iso",
 	"kernel" : "vmlinuz1",
 	"initrd" : "initrd1.img",
-	"args"   : "ip=192.168.1.3 boot=live config quiet splash live-media-path=/live/"
+	"args"   : "boot=live config quiet splash live-media-path=/live/"
 
 }
