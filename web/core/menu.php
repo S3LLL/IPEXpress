@@ -4,7 +4,7 @@
 
 	echo "#!ipxe\n";
 
-	require_once "distrib.php";
+	require_once "../distrib.php";
 
 	//file_put_contents("boot.log",date('Y-m-d H:i:s') . " " . $_GET["mac"] . " " . $_GET["ip"] . " " . $_GET["mask"] . "\n",FILE_APPEND);	
 

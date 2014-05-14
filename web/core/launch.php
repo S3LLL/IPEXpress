@@ -12,7 +12,7 @@
 		exit("echo erreure: distribution inconnue\n");
 	}
 
-	require_once "distrib.php";
+	require_once "../distrib.php";
 
 	$distrib = new Distrib($_GET["distrib"]);
 

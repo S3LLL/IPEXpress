@@ -5,9 +5,9 @@ class Distrib {
 	private $settings;
 	private $folder;
 
-	function __construct($folder){
+	function __construct($folder,$deep="../.."){
 		$this->folder   = $folder;
-		$this->settings = json_decode(file_get_contents("../../distrib/" . $folder . "/param.json"));
+		$this->settings = json_decode(file_get_contents($deep . "/distrib/" . $folder . "/param.json"));
 	}
 
 	function menuItemIPXE(){

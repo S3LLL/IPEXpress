@@ -17,7 +17,7 @@
 
 	error_reporting(0);
 
-	require_once "distrib.php";
+	require_once "../distrib.php";
 
 	$distrib = new Distrib($_GET["distrib"]);
 
