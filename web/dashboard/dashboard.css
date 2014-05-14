@@ -1,18 +1,34 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
 
 body {
 	font: 12px/18px "Droid Sans Mono","Lucida Console","Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
 }
 
+div#nav {
+	position: fixed;
+	top: 50px;
+	left: 5%;
+	width: 20%;
+	font: 13px/1.4 Helvetica,arial,freesans,clean,sans-serif
+}
+
 h1 {
-	text-align: center;
 	margin: 40px;
 	color: #333;
-	text-shadow: 1px 1px 2px #333;
-	font-family: Arial;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 30px;
+	margin-top: 10px;
+	font-size: 3em;
 }
 
 div#computers {
 	width: 40%;
+	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -21,6 +37,7 @@ div#computers div {
 	padding: 20px;
 	margin-bottom: 20px;
 	box-shadow: 0px 0px 3px #888888;
+	border-radius: 30px;
 }
 
 div#computers div table {
@@ -38,7 +55,7 @@ div#computers div table tr td:last-child {
 }
 
 div#computers div.debian {
-	background-color: #DC0F30;
+	background-color: #479647;
 	color: white;
 }
 
@@ -48,5 +65,10 @@ div#computers div.windows {
 }
 
 div#computers div.undefined {
-	background-color: grey;
+	background-color: white;
+}
+
+div#computers div.asking {
+	background-color: white;
+	border: solid 1px orange;
 }

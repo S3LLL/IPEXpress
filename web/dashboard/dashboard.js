@@ -8,7 +8,11 @@ function reload(){
 		$all  = "";
 		$todo = [];
 		$.each(result, function(i, field){
-			$box = "<div class=" + field["os"] + "><table>\n";
+			$classname = field["os"];
+			if (field["boot"]=="asking") {
+				$classname = "asking"
+			};
+			$box = "<div class=" + $classname + "><table>\n";
 			$.each(field, function(j,param){
 				if (j=="boot" && param=="asking") {
 					$box += "<tr><td>" + j + ":</td><td><select id='choice" + field["id"] + "'></select></td></tr>\n";
@@ -21,6 +25,7 @@ function reload(){
 			$all += $box;
 		});
 		$("#computers").html($all);
+		$("#nbasking").html($todo.length)
 		if ($todo.length>0) {
 			$.getJSON("requete/distribution.php",function(distrib){
 				$choice = "";
