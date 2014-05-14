@@ -1,7 +1,6 @@
 <?php
 
-	require_once "../settings.php";
-	require_once "../db.php";
+	require_once "../../pdo.php";
 
 	header("Content-Type: text/plain");
 

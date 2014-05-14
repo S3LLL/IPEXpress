@@ -55,6 +55,11 @@ div#computers div table tr td:last-child {
 }
 
 div#computers div.debian {
+	background-color: #DC0F30;
+	color: white;
+}
+
+div#computers div.grml {
 	background-color: #479647;
 	color: white;
 }
