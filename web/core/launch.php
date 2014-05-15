@@ -12,6 +12,11 @@
 		exit("echo erreure: distribution inconnue\n");
 	}
 
+	if (isset($_GET["mac"])) {
+		require_once "db.php";
+		updateOS($_GET["mac"],$_GET["distrib"]);
+	}
+
 	require_once "../distrib.php";
 
 	$distrib = new Distrib($_GET["distrib"]);

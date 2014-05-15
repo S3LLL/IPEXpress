@@ -14,9 +14,9 @@ class Distrib {
 		return "  item " . $this->folder . " " . $this->settings->{"name"} . "\n";
 	}
 
-	function menuSelectedIPXE(){
+	function menuSelectedIPXE($mac){
 		$output  = ":" . $this->folder . "\n";
-		$output .= "  chain launch.php?distrib=" . $this->folder . "\n";
+		$output .= "  chain launch.php?distrib=" . $this->folder . "&mac=" . $mac . "\n";
 		$output .= "  goto menu\n";
 		return $output;
 	}
