@@ -4,16 +4,16 @@
 
 	echo "#!ipxe\n";
 	
+	if(!isset($_GET["mac"]) || !isset($_GET["ip"])){
+		exit("echo ip ou adresse mac manquant\n");
+	}
+
 	file_put_contents("boot.log",date('Y-m-d H:i:s') . " " . $_GET["mac"] . " " . $_GET["ip"] . " " . $_GET["mask"] . "\n",FILE_APPEND);	
 
 	$_GET["mac"] = str_replace(":","",$_GET["mac"]);
 
 	require_once "../distrib.php";
 	require_once "db.php";
-
-	if(!isset($_GET["mac"]) || !isset($_GET["ip"])){
-		exit("echo ip ou adresse mac manquant\n");
-	}
 
 	if (!isindbOrdi($_GET["mac"])) {
 		insertOrdi($_GET["mac"],$_GET["ip"],$_GET["mask"]);
@@ -22,16 +22,7 @@
 		updateOrdi($_GET["mac"],$_GET["ip"],$_GET["mask"]);
 	}
 
-	$available     = scandir("../../distrib");
-	$exclude       = array(".","..","README.md","windows");
-	$distributions = array();
-
-	$taille_original = count($available);
-	for ($i=0; $i<$taille_original; $i++) { 
-		if (!in_array($available[$i],$exclude)) {
-			$distributions[] = new Distrib($available[$i]);
-		}
-	}
+	$distributions = Distrib::getAll();
 
 	$boot = getBoot($_GET["mac"]);
 

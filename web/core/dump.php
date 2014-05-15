@@ -5,8 +5,9 @@
 		exit("echo erreure: argument manquant\n");
 	}
 
-	if (!in_array($_GET["distrib"], scandir("../../distrib")) || in_array($_GET["distrib"], array(".","..","README.md","windows"))) {
-		echo "#!ipxe\n";
+	require_once "../distrib.php";
+
+	if (!Distrib::isValid($_GET["distrib"])) {
 		exit("echo erreure: distribution inconnue\n");
 	}
 
@@ -19,14 +20,14 @@
 
 	require_once "../distrib.php";
 
-	$distrib = new Distrib($_GET["distrib"]);
+	$os = new Distrib($_GET["distrib"]);
 
 	$file = "";
 	if($_GET["fichier"]=="kernel"){
-		$file = $distrib->getKernelPath();
+		$file = $os->getKernelPath();
 	}
 	else {
-		$file = $distrib->getInitrdPath();
+		$file = $os->getInitrdPath();
 	}
 
 	$tmp = explode("/", $file);

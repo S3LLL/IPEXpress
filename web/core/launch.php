@@ -8,7 +8,9 @@
 		exit("echo erreure: distribution manquante\n");
 	}
 
-	if (!in_array($_GET["distrib"], scandir("../../distrib")) || in_array($_GET["distrib"], array(".","..","README.md","windows"))) {
+	require_once "../distrib.php";
+
+	if (!Distrib::isValid($_GET["distrib"])) {
 		exit("echo erreure: distribution inconnue\n");
 	}
 
@@ -16,8 +18,6 @@
 		require_once "db.php";
 		updateOS($_GET["mac"],$_GET["distrib"]);
 	}
-
-	require_once "../distrib.php";
 
 	$distrib = new Distrib($_GET["distrib"]);
 
