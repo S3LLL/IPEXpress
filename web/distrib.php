@@ -34,11 +34,11 @@ class Distrib {
 	}
 
 	public function getKernelPath(){
-		return $deep . "/distrib/" . $this->folder . "/" . $this->settings->{"kernel"};
+		return $this->deep . "/distrib/" . $this->folder . "/" . $this->settings->{"kernel"};
 	}
 
 	public function getInitrdPath(){
-		return $deep . "/distrib/" . $this->folder . "/" . $this->settings->{"initrd"};
+		return $this->deep . "/distrib/" . $this->folder . "/" . $this->settings->{"initrd"};
 	}
 
 	public function getBootArguments(){

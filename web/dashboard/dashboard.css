@@ -26,6 +26,11 @@ h1 {
 	font-size: 3em;
 }
 
+a {
+	color: blue;
+}
+
+div#param,
 div#computers {
 	width: 40%;
 	margin-top: 50px;
@@ -76,4 +81,33 @@ div#computers div.undefined {
 div#computers div.asking {
 	background-color: white;
 	border: solid 1px orange;
+}
+
+div#param table {
+	width: 100%;
+	border-spacing: 0;
+}
+
+div#param table td,
+div#param table th {
+	text-align: center;
+	font-size: 1.1em;
+	padding: 4px;
+}
+
+div#param table tr:nth-child(even) td {
+	background-color: #DDDDDD;
+}
+
+div#param table tr:hover td {
+	background-color: #FF6600;
+	color: white;
+}
+
+div#param table tr td:first-of-type {
+	border-radius: 5px 0 0 5px;
+}
+
+div#param table tr td:last-of-type {
+	border-radius: 0 5px 5px 0;
 }

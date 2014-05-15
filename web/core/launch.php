@@ -28,7 +28,7 @@
 goto lauch
 
 :fail
-	echo appuyer sur une touche pour retourner au menu principale
+	echo appuyer sur une touche pour continuer
 	prompt
 	exit
 

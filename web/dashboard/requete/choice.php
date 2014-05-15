@@ -10,26 +10,17 @@
 
 	require_once "../../distrib.php";
 
-	$available     = scandir("../../../distrib");
-	$exclude       = array(".","..","README.md","windows");
-	$distributions = array();
-
-	$taille_original = count($available);
-	for ($i=0; $i<$taille_original; $i++) { 
-		if (!in_array($available[$i],$exclude)) {
-			$tmp = new Distrib($available[$i],"../../..");
-			$distrib_obj[] = $tmp;
-			$distributions[] = $tmp->getName();
-		}
+	$distrib_obj = Distrib::getAll("../../..");
+	foreach ($distrib_obj as $distrib) {
+		$nom[] = $distrib->getName();
 	}
-
-	if (!in_array($_POST["osordi"],$distributions)) {
+	if (!in_array($_POST["osordi"],$nom)) {
 		exit("choice.php: distribution non supporté");
 	}
 
 	require_once "../../pdo.php";
 
-	$distrib = $distrib_obj[array_search($_POST["osordi"], $distributions)]->getFolder();
+	$distrib = $distrib_obj[array_search($_POST["osordi"], $nom)]->getFolder();
 
 	try{
 		$connec = getPDO();

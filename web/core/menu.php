@@ -22,8 +22,6 @@
 		updateOrdi($_GET["mac"],$_GET["ip"],$_GET["mask"]);
 	}
 
-	$distributions = Distrib::getAll();
-
 	$boot = getBoot($_GET["mac"]);
 
 	switch ($boot) {
@@ -34,11 +32,13 @@
 			echo "\nchain wait.php?mac=" . $_GET["mac"] . "\n";
 			exit(0);
 			break;
-		case (in_array($boot, $available) && !in_array($boot, $exclude)):
+		case (Distrib::isValid($boot)):
 			echo "\nchain launch.php?distrib=" . $boot . "&mac=" . $_GET["mac"] . "\n";
 			exit(0);
 			break;
 	}
+
+	$distributions = Distrib::getAll();
 
 ?>
 

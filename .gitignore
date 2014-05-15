@@ -1,5 +1,6 @@
 *.iso
 *.usb
+*.log
 
 nfs/mounted/*
 distrib/*

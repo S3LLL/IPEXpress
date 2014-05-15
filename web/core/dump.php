@@ -18,8 +18,6 @@
 
 	error_reporting(0);
 
-	require_once "../distrib.php";
-
 	$os = new Distrib($_GET["distrib"]);
 
 	$file = "";
