@@ -74,6 +74,11 @@ div#computers div.windows {
 	color: white;
 }
 
+div#computers div.frog {
+	background-color: #942E7B;
+	color: white;
+}
+
 div#computers div.undefined {
 	background-color: white;
 }
