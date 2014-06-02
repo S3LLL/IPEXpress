@@ -16,6 +16,7 @@
 <html>
 	<head>
 		<title>IPEXpress Aide</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<link rel='stylesheet' type='text/css' href='Clearness.css' />
 		<style type="text/css">
 			body, html {
@@ -61,15 +62,16 @@
 				list-style: none;
 				text-decoration: none;
 			}
-		</style>	
+		</style>
 	</head>
 	<body>
 		<div id="md"><?php echo $html; ?></div>
 		<div id="nav">
 			<span class="titre">IPEXpress <i>Aide</i></span>
 			<a href="?f=home.md">Acceuille</a>
-			<a href="?f=install.md">Installer IPEXpress</a>
-			<span class="about" >IPEXpress: <a href="http://ipxe.org/" target="_blank">iPXE</a> pour <a target="_blank" href="http://expressos.org">ExpressOs</a>.</span>
+			<a href="?f=manuel.md">Télècharger et graver votre clé USB</a>
+			<a href="?f=commander.md">Commander une clé USB</a>
+			<a href="?f=lancer.md">Démarrer un ordinateur avec votre clé USB</a>
 		</div>
 		<a target="_blank" href="https://github.com/S3LLL/IPEXpress"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
 	</body>

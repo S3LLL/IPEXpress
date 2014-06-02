@@ -1,5 +1,5 @@
 ## Commander une clé USB
 
-Cette fonctionallité va arriver prochainement.
+Cette fonctionnalité va arriver prochainement.
 
 Merci de patienter.
