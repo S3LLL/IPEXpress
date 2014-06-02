@@ -8,7 +8,7 @@ Avant de commencer, pensez brancher votre clé USB sur votre ordinateur.
 
 #### 1. télécharger l'application
 
-Télèchargez le fichier: [ipex.usb](http://google.com).
+Télèchargez le fichier: [ipex.usb](https://185.13.37.145/jean/ipex/ipex.usb).
 
 Sauvegardez dans un dossier ou vous y aurez facilement accès, par exemple sur le bureau.
 
@@ -34,7 +34,7 @@ Faites attention à bien configurer votre fenêtre comme sur la capture d'écran
 
 Tout d'abord, cliquez sur les points de suspension à coté du premier tait vert et choisissez le chemin du fichier `ipex.usb` précédemment téléchargé sur le bureau.
 
-Pour le deuxième trait en vert, vous devez avoir au moins deux options (sinon vérifiez que votre clé est bien insérée). Les utilisateurs de Windows doivent choisir la lettre correspondant à la clé USB puis aller à l'étape 4. Les autres veillez lire le paragraphe suivant : 
+Pour le deuxième trait en vert, vous devez avoir au moins deux options (sinon vérifiez que votre clé est bien insérée). Les utilisateurs de Windows doivent choisir la lettre correspondant à la clé USB puis aller à l'étape 4. Les autres veillez lire le paragraphe suivant :
 
 Dans les options disponibles, il faut trouver celle qui  correspond à votre clé. pour cela, ouvrez un terminal et entrez la commande `df -h` et vous devez avoir un résultat ressemblant à celui ci:
 
