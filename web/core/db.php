@@ -113,7 +113,7 @@
 		return false;
 	}
 
-	function insertOrdi($mac,$ip,$mask,$os="undefined"){
+	function insertOrdi($mac,$ip,$mask,$os="undefined",$boot="user"){
 		$mac = str_replace(":","",$mac);
 		try{
 			$connec = getPDO();
@@ -124,6 +124,7 @@
 			$insert->bindParam('mask', $mask,                   PDO::PARAM_STR);
 			$insert->bindParam('boot', $SET["boot"]["default"], PDO::PARAM_STR);
 			$insert->bindParam('os',   $os,                     PDO::PARAM_STR);
+			$insert->bindParam('boot', $boot,                   PDO::PARAM_STR);
 			return $insert->execute();
 		}
 		catch( Exception $e ){
