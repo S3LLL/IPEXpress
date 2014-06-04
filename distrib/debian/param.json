@@ -1,9 +1,0 @@
-{
-
-	"name"   : "Debian",
-	"image"  : "debian64_live.iso",
-	"kernel" : "vmlinuz1",
-	"initrd" : "initrd1.img",
-	"args"   : "boot=live config quiet splash debug live-media-path=/live/"
-
-}
