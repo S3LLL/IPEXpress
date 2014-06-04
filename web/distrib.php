@@ -6,7 +6,7 @@ class Distrib {
 	private $folder;
 	private $deep;
 
-	private static $exclude = array(".","..","README.md","windows");
+	private static $exclude = array(".","..","README.md");
 
 	function __construct($folder,$deep="../.."){
 		$this->folder   = $folder;
