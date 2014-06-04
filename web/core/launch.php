@@ -34,8 +34,9 @@ goto lauch
 
 :lauch
 	echo Lancement de <?php echo $distrib->getName() . "\n"; ?>
-	echo arguments: root=/dev/nfs rw nfsroot=${snfs}:<?php echo $nfspath . $distrib->getFolder() . " " . $distrib->getBootArguments() . "\n"; ?>
-	kernel dump.php?distrib=<?php echo $distrib->getFolder(); ?>&fichier=kernel root=/dev/nfs rw nfsroot=${snfs}:<?php echo $nfspath . $distrib->getFolder() . " " . $distrib->getBootArguments(); ?> || goto fail
+	set bootarg root=/dev/nfs ip=${net0/ip}:${snfs}:${net0/gateway}:${net0/netmask}:::off:${net0/dns}: rw nfsroot=${snfs}:<?php echo $nfspath . $distrib->getFolder() . " " . $distrib->getBootArguments(); ?>
+	echo arguments: ${bootarg}
+	kernel dump.php?distrib=<?php echo $distrib->getFolder(); ?>&fichier=kernel ${bootarg} || goto fail
 	initrd dump.php?distrib=<?php echo $distrib->getFolder(); ?>&fichier=initrd || goto fail
 	echo chargement du kernel et du initrd ok: demarrage
 	boot || goto fail
