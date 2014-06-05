@@ -16,11 +16,8 @@ for distrib in os.listdir(path + "nfs/mounted"):
 		oups = os.system("umount -l " + path + "nfs/mounted/" + distrib)
 		if oups:
 			erreure += 1
-		else :
-			oups = os.rmdir(path + "nfs/mounted/" + distrib)
-			if oups:
-				erreure += 1
-				continue
+			continue
+		oups = os.rmdir(path + "nfs/mounted/" + distrib)
 		print("suppression de " + distrib + " de /etc/exports")
 		nfs_config = open("/etc/exports", "r")
 		config = nfs_config.readlines()

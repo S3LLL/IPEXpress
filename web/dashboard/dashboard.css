@@ -43,6 +43,11 @@ div#computers div {
 	margin-bottom: 20px;
 	box-shadow: 0px 0px 3px #888888;
 	border-radius: 30px;
+	color: white;
+}
+
+div#computers div.undefined {
+	color: black;
 }
 
 div#computers div table {
@@ -57,26 +62,6 @@ div#computers div table tr td:first-child {
 
 div#computers div table tr td:last-child {
 	font-weight: bold;
-}
-
-div#computers div.debian {
-	background-color: #DC0F30;
-	color: white;
-}
-
-div#computers div.grml {
-	background-color: #479647;
-	color: white;
-}
-
-div#computers div.windows {
-	background-color: #006699;
-	color: white;
-}
-
-div#computers div.frog {
-	background-color: #942E7B;
-	color: white;
 }
 
 div#computers div.undefined {

@@ -12,7 +12,7 @@ function reload(){
 			if (field["boot"]=="asking") {
 				$classname = "asking"
 			};
-			$box = "<div class=" + $classname + "><table>\n";
+			$box = "<div class=" + $classname + " style='background-color:" + color($classname) + ";' ><table>\n";
 			$.each(field, function(j,param){
 				if (j=="boot" && param=="asking") {
 					$box += "<tr><td>" + j + ":</td><td><select onchange='getchoice(" + field["id"] + ")' id='choice" + field["id"] + "'></select></td></tr>\n";
@@ -51,4 +51,13 @@ function getchoice(id){
 			alert(data);
 		};
 	});
+}
+
+function color(mot){
+	if (mot=="undefined") {
+		return "white";
+	};
+	for (var i = 0, hash = 0; i < mot.length; hash = mot.charCodeAt(i++) + ((hash << 5) - hash));
+	for (var i = 0, colour = "#"; i < 3; colour += ("00" + ((hash >> i++ * 8) & 0xFF).toString(16)).slice(-2));
+	return colour;
 }

@@ -10,8 +10,7 @@ tomount  = {}
 erreure  = 0
 
 for distrib in os.listdir(path + "distrib"):
-	if distrib == "windows":
-		# TODO windows
+	if distrib == "README.md":
 		continue
 	try:
 		with open(path + "distrib/" + distrib + "/param.json") as setting:

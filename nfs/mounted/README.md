@@ -1,3 +1,5 @@
-DO NOT PUT ANYTHING IN THIS FOLDER
+NE RIEN PLACER DANS CE REPERTOIRE
 
-Here will be mounted all iso located in the distribution folder. In order to do that run `mount.sh`.
+Dans ce dossier seront pmonté les distribution placé dans `distrib`.
+
+[TUTO](https://github.com/S3LLL/IPEXpress/wiki/Ajouter-une-distribution)
