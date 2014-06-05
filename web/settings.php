@@ -1,10 +1,12 @@
 <?php
 
-	$SET["db"]["user"]      = "root";
-	$SET["db"]["pass"]      = "root";
-	$SET["db"]["server"]    = "127.0.0.1";
-	$SET["db"]["port"]      = 3306;
-	$SET["db"]["name"]      = "ipexpress";
-	$SET["boot"]["default"] = "user";
+	$system = json_decode(file_get_contents("/etc/ipexpress/settings.json"));
+
+	$SET["db"]["user"]      = $system->{"db"}->{"user"};
+	$SET["db"]["pass"]      = $system->{"db"}->{"pass"};
+	$SET["db"]["server"]    = $system->{"db"}->{"server"};
+	$SET["db"]["port"]      = $system->{"db"}->{"port"};
+	$SET["db"]["name"]      = $system->{"db"}->{"name"};
+	$SET["boot"]["default"] = $system->{"default-boot"};
 
 ?>
