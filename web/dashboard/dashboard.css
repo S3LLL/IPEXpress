@@ -46,7 +46,8 @@ div#computers div {
 	color: white;
 }
 
-div#computers div.undefined {
+div#computers div.undefined,
+div#computers div.asking {
 	color: black;
 }
 
@@ -70,7 +71,7 @@ div#computers div.undefined {
 
 div#computers div.asking {
 	background-color: white;
-	border: solid 1px orange;
+	border: dashed 3px #DC0F30;
 }
 
 div#param table {
@@ -83,6 +84,11 @@ div#param table th {
 	text-align: center;
 	font-size: 1.1em;
 	padding: 4px;
+	height: 27px;
+}
+
+div#param table td:nth-child(3) {
+	width: 50%;
 }
 
 div#param table tr:nth-child(even) td {
@@ -100,4 +106,25 @@ div#param table tr td:first-of-type {
 
 div#param table tr td:last-of-type {
 	border-radius: 0 5px 5px 0;
+}
+
+div#param table tr td:last-of-type img {
+	visibility: hidden;
+	cursor: pointer;
+	height: 1em;
+	vertical-align:middle;
+}
+
+div#param table tr:hover td:last-of-type img {
+	visibility: visible;
+}
+
+div#param table tr select.choix,
+div#param table tr:hover span.action {
+	display: none;
+}
+
+div#param table tr span.action,
+div#param table tr:hover select.choix {
+	display: inline;
 }

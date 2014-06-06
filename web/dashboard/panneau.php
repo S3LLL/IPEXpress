@@ -52,10 +52,23 @@
 				<?php
 
 					foreach ($rep as $line) {
-						echo "<tr>";
+						echo "<tr id='t" . $line["id"] . "' >";
 						echo "<td>" . $line["id"] . "</td>";
 						echo "<td>" . $line["mac"] . "</td>";
-						echo "<td><select id='s" . $line["id"] . "' onchange='set(" . $line["id"] . ")'>";
+						echo "<td>";
+						if ($line["boot"]=="user") {
+							echo "<span id='c" . $line["id"] . "' class='action'>Choix de l'utilisateur</span>";
+						}
+						elseif ($line["boot"]=="admin") {
+							echo "<span id='c" . $line["id"] . "' class='action'>Choix de l'admin</span>";
+						}
+						elseif (isset($option[$line["boot"]])) {
+							echo "<span id='c" . $line["id"] . "' class='action'>" . $option[$line["boot"]] . "</span>";
+						}
+						else {
+							echo "<span id='c" . $line["id"] . "' class='action'>undefined</span>";
+						}
+						echo "<select id='s" . $line["id"] . "' onchange='set(" . $line["id"] . ")' class='choix'>";
 						if ($line["boot"]=="user") {
 							echo "<option selected='selected' value='user' >Choix de l'utilisateur</option>";
 						}
@@ -77,7 +90,7 @@
 							}
 						}
 						echo "</select></td>";
-						echo "</tr>\n";
+						echo "<td><img src='delete.png' onclick='del(" . $line["id"] . ")'/></td></tr>\n";
 					}
 
 				?>

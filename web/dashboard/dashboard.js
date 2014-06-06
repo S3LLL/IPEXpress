@@ -54,7 +54,7 @@ function getchoice(id){
 }
 
 function color(mot){
-	if (mot=="undefined") {
+	if (mot=="undefined" || mot=="asking") {
 		return "white";
 	};
 	for (var i = 0, hash = 0; i < mot.length; hash = mot.charCodeAt(i++) + ((hash << 5) - hash));

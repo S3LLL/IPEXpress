@@ -113,7 +113,11 @@
 		return false;
 	}
 
-	function insertOrdi($mac,$ip,$mask,$os="undefined",$boot="user"){
+	function insertOrdi($mac,$ip,$mask,$os="undefined",$boot=""){
+		if ($boot=="") {
+			global $SET;
+			$boot = $SET["boot"]["default"];
+		}
 		$mac = str_replace(":","",$mac);
 		try{
 			$connec = getPDO();
