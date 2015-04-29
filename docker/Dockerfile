@@ -29,4 +29,9 @@ RUN chmod 755 /build.sh
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 RUN bash /build.sh
+RUN cd /opt
+RUN git clone https://github.com/S3LLL/IPEXpress /opt/IPEXpress
+RUN cd /opt/IPEXpress/
+RUN python /opt/IPEXpress/docker/install.py
+
 CMD ["/bin/bash","/start.sh"]
