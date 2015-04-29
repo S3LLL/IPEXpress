@@ -29,4 +29,4 @@ RUN chmod 755 /build.sh
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 RUN bash /build.sh
-#CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash","/start.sh"]
