@@ -23,10 +23,10 @@ ENV APACHE_LOG_DIR /var/log/apache2
 RUN chown -R www-data:www-data /var/www/
 
 # Initialization Startup Script
-ADD ./build.sh /start.sh
-#RUN chmod 755 /start.sh
+ADD ./build.sh /build.sh
+RUN chmod 755 /build.sh
 
-#ADD ./build.sh /build.sh
-#RUN chmod 755 /build.sh
-#RUN /build.sh
+ADD ./start.sh /start.sh
+RUN chmod 755 /start.sh
+RUN bash /build.sh
 #CMD ["/bin/bash", "/start.sh"]
