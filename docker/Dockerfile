@@ -13,8 +13,8 @@ RUN apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git apache2 mysql-server php5 php5-mysql nfs-kernel-server 
 
 #Mysqlconfig
-ADD my.cnf /etc/mysql/conf.d/my.cnf
-RUN chmod 664 /etc/mysql/conf.d/my.cnf
+#ADD my.cnf /etc/mysql/conf.d/my.cnf
+#RUN chmod 664 /etc/mysql/my.cnf.bak
 
 # apache config
 ENV APACHE_RUN_USER www-data

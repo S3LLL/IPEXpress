@@ -1,6 +1,9 @@
 set -e
 
+sed -i 's/key_buffer/key_buffer_size/g' /etc/mysql/my.cnf 
+sed -i 's/sam-recover/myisam-recover-options/g' /etc/mysql/my.cnf 
 chown -R mysql:mysql /var/lib/mysql
+
 mysql_install_db --user mysql > /dev/null
 
 MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-"toor"}
@@ -9,6 +12,7 @@ MYSQL_USER=${MYSQL_USER:-"ipex"}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-"toor"}
 
 tfile=`mktemp`
+
 if [[ ! -f "$tfile" ]]; then
 	exit 1 
 fi
@@ -28,5 +32,5 @@ if [[ $MYSQL_DATABASE != "" ]]; then
     fi
 fi
 
-#/usr/sbin/mysqld --bootstrap --verbose=0 $MYSQLD_ARGS < $tfile
+/usr/sbin/mysqld --bootstrap --verbose=0 $MYSQLD_ARGS < $tfile
 rm -f $tfile
