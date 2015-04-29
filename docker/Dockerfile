@@ -32,6 +32,6 @@ RUN bash /build.sh
 RUN cd /opt
 RUN git clone https://github.com/S3LLL/IPEXpress /opt/IPEXpress
 RUN cd /opt/IPEXpress/
-RUN python /opt/IPEXpress/docker/install.py
+#RUN python /opt/IPEXpress/install.py
 
 CMD ["/bin/bash","/start.sh"]
