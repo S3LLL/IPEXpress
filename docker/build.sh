@@ -9,8 +9,8 @@ MYSQL_USER=${MYSQL_USER:-"ipex"}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-"toor"}
 
 tfile=`mktemp`
-if[[ ! -f "$tfile" ]]; then
-	return 1
+if [[ ! -f "$tfile" ]]; then
+	exit 1 
 fi
 
 cat << EOF > $tfile
@@ -28,5 +28,5 @@ if [[ $MYSQL_DATABASE != "" ]]; then
     fi
 fi
 
-/usr/sbin/mysqld --bootstrap --verbose=0 $MYSQLD_ARGS < $tfile
+#/usr/sbin/mysqld --bootstrap --verbose=0 $MYSQLD_ARGS < $tfile
 rm -f $tfile

@@ -12,7 +12,7 @@ RUN apt-get -y upgrade
 # Basic Requirements
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git apache2 mysql-server php5 php5-mysql nfs-kernel-server 
 
-# mysql config
+#Mysqlconfig
 ADD my.cnf /etc/mysql/conf.d/my.cnf
 RUN chmod 664 /etc/mysql/conf.d/my.cnf
 
@@ -24,9 +24,9 @@ RUN chown -R www-data:www-data /var/www/
 
 # Initialization Startup Script
 ADD ./build.sh /start.sh
-RUN chmod 755 /start.sh
+#RUN chmod 755 /start.sh
 
-ADD ./build.sh /build.sh
-RUN chmod 755 /build.sh
+#ADD ./build.sh /build.sh
+#RUN chmod 755 /build.sh
 #RUN /build.sh
-CMD ["/bin/bash", "/start.sh"]
+#CMD ["/bin/bash", "/start.sh"]
