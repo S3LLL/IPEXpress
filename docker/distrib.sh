@@ -12,4 +12,4 @@ cat << EOF > /opt/IPEXpress/distrib/ubuntu/param.json
 }
 EOF
 umount /mnt
-
+exit 0 

@@ -42,5 +42,6 @@ RUN python /opt/IPEXpress/install.py
 RUN mkdir /opt/IPEXpress/distrib/ubuntu
 RUN wget  -O /opt/IPEXpress/distrib/ubuntu/ubuntu-14.04.2-desktop-amd64.iso http://mirror.clibre.uqam.ca/ubuntu-releases/14.04.2/ubuntu-14.04.2-desktop-amd64.iso 
 
-RUN /distrib.sh
+#RUN /distrib.sh
+
 CMD ["/bin/bash","/start.sh"]
