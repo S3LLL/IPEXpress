@@ -5,10 +5,10 @@
     "nfs-server-name" : "nfs-kernel-server",
     "default-boot"    : "user",
     "db" : {
-    	"user"        : "root",
+    	"user"        : "pex",
 		"pass"        : "toor",
 		"server"      : "localhost",
 		"port"        : 3306,
-		"name"        : "ipxeboot"
+		"name"        : "ipexpress"
     }
 }
