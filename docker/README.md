@@ -2,7 +2,7 @@
 
 Le Docker file présent dans ce dossier permet de créer une image de container permettant de démarer un serveur IPEXpress
 
-il y à au total 3 scripts :
+il y a au total 3 scripts :
 
 ####build.sh 
 
