@@ -14,4 +14,4 @@ Qui permet d'installer une distribution (ubuntu 14.04) de démonstration dans le
 
 ####start.sh
 
-C'est le script qui permet de démarrer tous les services 
+C'est le script qui permet de démarrer tous les services qui se lancent au démarage du conteneur.
