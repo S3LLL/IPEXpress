@@ -23,7 +23,7 @@ ENV APACHE_LOG_DIR /var/log/apache2
 RUN chown -R www-data:www-data /var/www/
 
 # Initialization Startup Script
-
+ADD ./db.sql /db.sql
 ADD ./distrib.sh /distrib.sh
 RUN chmod 755 /distrib.sh
 

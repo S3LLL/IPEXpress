@@ -35,6 +35,7 @@ fi
 
 /usr/sbin/mysqld --bootstrap --verbose=0 $MYSQLD_ARGS < $tfile
 rm -f $tfile
-
+service mysql start
+mysql -u ipex --password=toor < /db.sql
 sed -i 's/--manage-gids/--manage-gids --port 4000/g' /etc/default/nfs-kernel-server
-ln -s /opt/IPEXpress/web /var/www/html/IPEXpress
+ln -s /opt/IPEXpress/web /var/www/html/ipexpress

@@ -1,6 +1,5 @@
-service apache2 start
-service rpcbind start
-service mysql start
+service apache2 restart
+service rpcbind restart
+service mysql restart
 /distrib.sh
 /opt/IPEXpress/bin/ipex-mount
-bash
