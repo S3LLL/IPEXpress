@@ -5,7 +5,7 @@
     "nfs-server-name" : "nfs-kernel-server",
     "default-boot"    : "user",
     "db" : {
-    	"user"        : "pex",
+    	"user"        : "ipex",
 		"pass"        : "toor",
 		"server"      : "localhost",
 		"port"        : 3306,
