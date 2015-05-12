@@ -1,4 +1,4 @@
 #!ipxe
 
 dhcp
-chain http://192.168.220.188/ipexpress/core/boot.php
+chain http://198.245.60.184/ipexpress/core/boot.php
