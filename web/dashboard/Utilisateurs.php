@@ -6,10 +6,10 @@ if(isset $_POST['identifiant'] && isset $_POST['password'] && isset $_POST['pass
 			//encryption du mot de passe et mise dans le .htaccess
 			$clearTextPassword = $_POST['password'];
 			$password = crypt($clearTextPassword, base64_encode($clearTextPassword));
-			echo $password
+			echo $password;
 		}
 		else{
-			echo "Les deux mots de passes ne sont pas identiques"  
+			echo "Les deux mots de passes ne sont pas identiques";  
 		}
 	}
 }
