@@ -1,3 +1,23 @@
+<?php
+
+if(isset $_POST['identifiant'] && isset $_POST['password'] && isset $_POST['password2']){
+	if($_POST['identifiant'] != "" && $_POST['password'] != "" && $_POST['password2'] != ""){
+		if($_POST['password']==$_POST['password2']){
+			//encryption du mot de passe et mise dans le .htaccess
+			$clearTextPassword = $_POST['password'];
+			$password = crypt($clearTextPassword, base64_encode($clearTextPassword));
+			echo $password
+		}
+		else{
+			echo "Les deux mots de passes ne sont pas identiques"  
+		}
+	}
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,6 +45,9 @@
     				<div>
         				<label for="Mot de passe">confirmer le Mot de passe :</label>
         				<input type="password" id="password2" />
+    				</div>
+    				<div>
+    					<input type="submit" id="submit" name="soumettre">
     				</div>
 			</form>
 		</div>
