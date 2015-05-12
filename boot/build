@@ -44,8 +44,8 @@ except Exception as e:
 try:
 	embed = open(settings["path"] + "boot/embed.ipxe","w")
 	embed.write("#!ipxe\n\n")
-	embed.write("dhcp\n")
-	embed.write("chain http://" + settings["web-server"] + "/ipexpress/core/boot.php")
+	embed.write("dhcp\nlogin\n")
+	embed.write("chain http://${username:uristring}:${password:uristring}@" + settings["web-server"] + "/ipexpress/core/boot.php")
 	embed.close()
 except Exception as e:
 	print("erreur: 5: impossible d'ecrire le fichier embed.ipxe: " + str(e))
