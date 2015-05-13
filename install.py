@@ -86,9 +86,10 @@ try:
 		erreurs += 1
 		print(":( impossible de trouver le repertoire /etc/apache2/conf.d/")
 	else:
-		os.symlink("/etc/ipexpress/apache2.conf","/etc/apache2/conf.d/ipexpress.conf")
+		os.symlink("/etc/ipexpress/apache2.conf","/etc/apache2/sites-available/ipexpress.conf")
 		print(":) lien /etc/apache2/conf.d/ipexpress.conf cree")
 	print("")
+        os.system("a2ensite ipexpress")
 	oups = os.system("service apache2 restart")
 	if oups:
 		erreurs += 1
