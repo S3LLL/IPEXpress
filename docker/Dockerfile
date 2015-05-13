@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Basic Requirements
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git apache2 mysql-server php5 php5-mysql nfs-kernel-server wget 
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git apache2 mysql-server php5 php5-mysql nfs-kernel-server wget apache2-utils 
 
 #Mysqlconfig
 #ADD my.cnf /etc/mysql/conf.d/my.cnf
